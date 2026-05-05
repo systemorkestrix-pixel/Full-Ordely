@@ -1,0 +1,25 @@
+.auth-feedback {
+  display: none;
+  padding: var(--space-16);
+  border-radius: 16px;
+  border: 1px solid var(--ui-border-strong);
+  font-size: 13px;
+  line-height: 1.75;
+}
+
+.auth-feedback.is-visible {
+  display: block;
+}
+
+.auth-feedback.is-error {
+  color: #9f1d1d;
+  background: var(--danger-soft);
+  border-color: var(--danger);
+}
+
+.auth-feedback.is-success {
+  color: var(--success);
+  background: var(--bg-surface);
+  border-color: var(--ui-border);
+}
+

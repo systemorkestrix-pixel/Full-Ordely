@@ -1,0 +1,49 @@
+.auth-onboarding-preview {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border: 1px solid var(--ui-border-strong);
+  border-radius: 12px;
+  background: var(--bg-main);
+  font-size: 13px;
+  line-height: 1.5;
+  overflow: hidden;
+}
+
+.auth-onboarding-preview-label {
+  color: var(--text-secondary);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.auth-onboarding-preview-url {
+  color: var(--primary);
+  font-weight: 700;
+  word-break: break-all;
+  direction: ltr;
+  text-align: left;
+}
+
+.auth-onboarding-contact-hint {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.auth-onboarding-contact-hint--whatsapp {
+  background: #e6f9f0;
+  color: #15803d;
+  border: 1px solid #bbf7d0;
+}
+
+.auth-onboarding-contact-hint--phone {
+  background: #eff6ff;
+  color: #1d4ed8;
+  border: 1px solid #bfdbfe;
+}

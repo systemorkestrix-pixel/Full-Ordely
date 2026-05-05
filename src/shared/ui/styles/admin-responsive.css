@@ -1,0 +1,399 @@
+    @media (max-width: 720px) {
+      .admin-container {
+        padding: 12px 10px 28px;
+      }
+
+      .admin-header {
+        flex-direction: column;
+        align-items: stretch;
+        min-height: 76px;
+        padding: 16px;
+        border-radius: 20px;
+      }
+
+      .admin-title-wrap {
+        padding-inline-end: 156px;
+      }
+
+      #btnLogout {
+        position: static;
+        width: 44px;
+        min-width: 44px;
+        min-height: 44px;
+        height: 44px;
+        padding: 0;
+        border-radius: 14px;
+        box-shadow: 0 10px 20px rgba(198, 40, 40, 0.2);
+      }
+
+      #btnLogout .btn-content {
+        width: auto;
+        gap: 0;
+      }
+
+      #btnLogout .btn-content span:last-child {
+        display: none;
+      }
+
+      #btnLogout .ui-icon {
+        width: 18px;
+        height: 18px;
+      }
+
+      .admin-header-actions {
+        position: absolute;
+        top: 12px;
+        inset-inline-end: 12px;
+        gap: 8px;
+      }
+
+      .header-icon-btn {
+        width: 44px;
+        min-width: 44px;
+        height: 44px;
+        min-height: 44px;
+        padding: 0;
+        border-radius: 14px;
+      }
+
+      .auth-section {
+        padding: 16px;
+        border-radius: 16px;
+      }
+
+      .auth-card {
+        gap: 14px;
+      }
+
+      .auth-note {
+        padding: 13px 14px;
+        border-radius: 16px;
+      }
+
+      .tabs {
+        position: sticky;
+        top: 8px;
+        z-index: 20;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 6px;
+        padding: 6px;
+        border-radius: 18px;
+      }
+
+      .tab {
+        flex-direction: column;
+        gap: 6px;
+        min-height: 72px;
+        padding: 10px 6px;
+        font-size: 11px;
+      }
+
+      .form-grid,
+      .settings-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .panel-card {
+        padding: 15px;
+        border-radius: 20px;
+      }
+
+      .overview-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+      .overview-card { min-width: 0; padding: 12px 10px; border-radius: 16px; justify-items: center; text-align: center; }
+      .overview-card-label { font-size: 11px; line-height: 1.5; overflow-wrap: anywhere; }
+      .overview-card-value { font-size: 22px; line-height: 1.05; }
+
+      .products-toolbar,
+      .categories-toolbar {
+        align-items: stretch;
+        flex-direction: column;
+        padding: 14px;
+      }
+
+      .products-toolbar .btn,
+      .categories-toolbar .btn {
+        width: 100%;
+        min-width: 0;
+      }
+
+      .product-editor-shell,
+      .category-editor-shell {
+        padding: 0;
+        align-items: stretch;
+        justify-content: stretch;
+      }
+
+      .product-editor-backdrop,
+      .category-editor-backdrop {
+        display: none;
+      }
+
+      .product-editor-surface,
+      .category-editor-surface {
+        width: 100%;
+        min-height: 100dvh;
+        max-height: none;
+        padding: 16px 12px 28px;
+        border: none;
+        border-radius: 0;
+        background: var(--admin-bg);
+        box-shadow: none;
+      }
+
+      .product-editor-header,
+      .category-editor-header {
+        position: sticky;
+        top: 0;
+        z-index: 2;
+        margin: 0 -12px 16px;
+        padding: 12px;
+        background: rgba(255, 255, 255, 0.96);
+        border-bottom: 1px solid var(--admin-border);
+      }
+
+      .product-editor-heading h3,
+      .category-editor-heading h3 {
+        font-size: 21px;
+      }
+
+      .product-editor-close,
+      .category-editor-close {
+        min-height: 40px;
+        padding: 0 12px;
+        border-radius: 12px;
+      }
+
+      .settings-accordion-summary {
+        padding: 16px;
+      }
+
+      .settings-accordion-meta {
+        gap: 10px;
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .settings-accordion-label {
+        white-space: normal;
+      }
+
+      .settings-accordion-body {
+        padding: 0 16px 16px;
+      }
+
+      .file-picker-row {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .file-picker-trigger {
+        width: 100%;
+        min-width: 0;
+      }
+
+      .admin-confirm {
+        align-items: end;
+        padding: 12px;
+      }
+
+      .admin-confirm-dialog {
+        width: 100%;
+        padding: 18px;
+        border-radius: 22px;
+      }
+
+      .admin-confirm-actions {
+        flex-direction: column-reverse;
+      }
+
+      .form-actions {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px;
+      }
+
+      .form-actions .btn {
+        width: 100%;
+        min-height: 40px;
+        padding: 10px 12px;
+        border-radius: 12px;
+        font-size: 12px;
+      }
+
+      .form-actions .btn:only-child {
+        grid-column: 1 / -1;
+        width: min(100%, 220px);
+        justify-self: start;
+      }
+
+      .form-actions .btn .btn-content {
+        gap: 6px;
+      }
+
+      .admin-table-actions .btn {
+        flex: 1 1 calc(50% - 4px);
+      }
+
+      .admin-table-responsive.panel-card {
+        padding: 12px;
+      }
+
+      .admin-table-responsive {
+        overflow-x: hidden;
+      }
+
+      .admin-table {
+        display: block;
+        width: 100%;
+        min-width: 0;
+        border: none;
+        background: transparent;
+      }
+
+      #productsTab .admin-table,
+      #ordersTab .admin-table {
+        width: 100%;
+        min-width: 0;
+        table-layout: auto;
+      }
+
+      .admin-table-head {
+        display: none;
+      }
+
+      .admin-table-body { display: grid; gap: 10px; }
+
+      .admin-table-row { display: grid; gap: 12px; padding: 16px; border-radius: 18px; border: 1px solid rgba(45, 108, 255, 0.28); background: #ffffff; box-shadow: var(--admin-shadow); width: 100%; min-width: 0; overflow: hidden; }
+
+      .admin-table-row--product { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-areas: "image image" "name name" "price category" "clicks status" "actions actions"; align-items: start; }
+
+      .admin-table-row--order { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-areas: "product product" "customer phone" "quantity date" "status status" "actions actions"; align-items: start; }
+
+      .admin-table-cell {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        width: auto;
+        min-width: 0;
+        padding: 0;
+        border: none;
+      }
+
+      .admin-cell-label { display: none; }
+
+      .admin-card-detail-label { display: block; }
+
+      .admin-card-detail-value { padding-top: 10px; border-top: 1px solid rgba(148, 163, 184, 0.28); font-size: 18px; font-weight: 800; }
+
+      .admin-table-row--product .admin-table-cell--image {
+        grid-area: image;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .admin-table-row--product .admin-table-cell--name { grid-area: name; }
+      .admin-table-row--product .admin-table-cell--price { grid-area: price; }
+      .admin-table-row--product .admin-table-cell--category { grid-area: category; }
+      .admin-table-row--product .admin-table-cell--clicks { grid-area: clicks; }
+      .admin-table-row--product .admin-table-cell--status { grid-area: status; }
+      .admin-table-row--product .admin-table-cell--actions { grid-area: actions; }
+      .admin-table-row--order .admin-table-cell--product { grid-area: product; }
+      .admin-table-row--order .admin-table-cell--customer { grid-area: customer; }
+      .admin-table-row--order .admin-table-cell--phone { grid-area: phone; }
+      .admin-table-row--order .admin-table-cell--quantity { grid-area: quantity; }
+      .admin-table-row--order .admin-table-cell--status { grid-area: status; }
+      .admin-table-row--order .admin-table-cell--date { grid-area: date; }
+      .admin-table-row--order .admin-table-cell--actions { grid-area: actions; }
+
+      .admin-table-row--product .admin-table-thumb,
+      .admin-table-row--product .admin-card-media { width: 72px; height: 72px; }
+
+      .admin-table-row--product .admin-table-cell--name { align-items: center; justify-content: center; text-align: center; }
+
+      .admin-table-row--product .admin-card-title,
+      .admin-table-row--order .admin-card-title { font-size: 17px; }
+
+      .admin-table-row--order .admin-order-product-card { display: flex; flex-direction: column; align-items: stretch; gap: 12px; text-align: center; }
+      .admin-table-row--order .admin-order-product-media { order: 1; width: 72px; min-width: 72px; height: 72px; margin-inline: auto; flex-basis: 72px; }
+      .admin-table-row--order .admin-order-product-media .admin-table-thumb { width: 72px; height: 72px; margin-inline: auto; border-radius: 16px; }
+      .admin-table-row--order .admin-order-product-copy { display: grid; order: 2; gap: 10px; justify-items: center; text-align: center; min-height: 0; }
+      .admin-table-row--order .admin-order-product-copy .admin-card-title { order: initial; max-width: 100%; font-size: 17px; line-height: 1.6; text-align: center; }
+      .admin-table-row--order .admin-order-product-meta { order: initial; grid-template-columns: repeat(2, minmax(0, 1fr)); width: 100%; max-width: none; }
+      .admin-table-row--order .admin-order-product-meta-card { gap: 8px; min-height: 88px; padding: 12px; border-radius: 14px; }
+      .admin-table-row--order .admin-order-product-meta-card .admin-card-detail-label { display: block; font-size: 11px; line-height: 1.4; }
+      .admin-table-row--order .admin-order-product-meta-card .admin-card-detail-value { font-size: 18px; font-weight: 800; }
+
+      .admin-table-row--product .admin-table-thumb {
+        max-width: none;
+        margin-inline: auto;
+        border-radius: 16px;
+        border: 1px solid rgba(45, 108, 255, 0.28);
+        box-shadow: none;
+      }
+
+      .admin-table-row--product .admin-card-media--placeholder .admin-image-placeholder { width: 72px; min-width: 72px; min-height: 72px; }
+
+      .admin-table-row--product .admin-table-cell--price,
+      .admin-table-row--product .admin-table-cell--clicks,
+      .admin-table-row--product .admin-table-cell--category,
+      .admin-table-row--product .admin-table-cell--status,
+      .admin-table-row--order .admin-table-cell--customer,
+      .admin-table-row--order .admin-table-cell--phone,
+      .admin-table-row--order .admin-table-cell--quantity,
+      .admin-table-row--order .admin-table-cell--date { display: grid; align-items: center; justify-items: center; gap: 8px; min-height: 88px; padding: 12px; border: 1px solid rgba(45, 108, 255, 0.28); border-radius: 14px; background: #f8fafc; text-align: center; }
+
+      .admin-table-row--product .admin-table-cell--category { min-width: 0; }
+
+      .admin-table-row--product .admin-card-detail,
+      .admin-table-row--order .admin-card-detail { gap: 8px; }
+
+      .admin-table-row--product .admin-card-detail-label,
+      .admin-table-row--order .admin-card-detail-label { font-size: 11px; font-weight: 800; line-height: 1.4; }
+
+      .admin-table-row--product .admin-card-status { padding: 0; border: none; background: transparent; }
+
+      .admin-table-row--order .admin-card-status { padding: 10px; border: 1px solid rgba(45, 108, 255, 0.28); border-radius: 14px; background: #f8fafc; }
+
+      .admin-table-row--product .admin-table-cell--actions,
+      .admin-table-row--order .admin-table-cell--actions { margin-top: 2px; padding-top: 10px; border-top: 1px solid var(--admin-border); }
+
+      .admin-table-row--product .admin-card-status .status-pill,
+      .admin-table-row--order .admin-card-status .status-pill { width: 100%; }
+
+      .admin-table-responsive .admin-table-actions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; width: 100%; }
+
+      .admin-table-responsive .product-action-btns { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
+      .admin-table-responsive .admin-table-actions .btn:first-child:last-child,
+      .admin-table-responsive .admin-table-actions .btn:only-child {
+        grid-column: 1 / -1;
+      }
+
+      .admin-table-responsive .admin-table-actions .btn {
+        width: 100%;
+        min-width: 0;
+        flex: none;
+        min-height: 38px;
+        padding-inline: 10px;
+        margin: 0;
+      }
+
+      .admin-table-cell,
+      .admin-table-cell a,
+      .admin-card-detail-value,
+      .admin-card-secondary,
+      .order-product-meta,
+      .admin-table-responsive .admin-table-actions .btn .btn-content,
+      .status-pill {
+        white-space: normal;
+        word-break: break-word;
+        overflow-wrap: anywhere;
+      }
+
+      .categories-desktop-table { display: none; }
+      .categories-mobile-list { display: grid; }
+      .category-card-actions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; width: 100%; }
+
+      .category-card-actions .btn { width: 100%; min-width: 0; margin: 0; }
+    }
+

@@ -1,0 +1,59 @@
+.admin-container .btn,
+.admin-confirm .btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 0 16px;
+  border-radius: 14px;
+  border: 1px solid var(--ui-border);
+  background: var(--bg-surface);
+  color: var(--text-primary);
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.2;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.admin-container .btn-primary,
+.admin-container .btn-accent {
+  background: var(--primary-gradient);
+  color: white;
+  border-color: var(--primary);
+}
+
+.admin-container .btn-secondary,
+.admin-confirm .btn {
+  background: var(--bg-surface);
+  color: var(--text-primary);
+  border-color: var(--ui-border);
+}
+
+.admin-container .btn-danger,
+.admin-confirm .btn-danger {
+  background: var(--danger);
+  color: white;
+  border-color: var(--danger);
+}
+
+.admin-container .btn-content,
+.admin-confirm .btn-content {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+}
+
+    .btn-small {
+      padding: 8px 12px;
+      font-size: 0.85rem;
+    }
+
+    .btn-danger {
+      background: var(--admin-danger);
+      color: white;
+    }

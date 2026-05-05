@@ -1,0 +1,112 @@
+    .admin-toast-stack {
+      position: fixed;
+      top: 18px;
+      inset-inline-start: 18px;
+      z-index: 220;
+      display: grid;
+      gap: 10px;
+      width: min(360px, calc(100vw - 24px));
+      pointer-events: none;
+    }
+
+    .admin-toast {
+      display: grid;
+      gap: 4px;
+      padding: 14px 16px;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.98);
+      border: 1px solid var(--admin-border);
+      box-shadow: var(--admin-shadow);
+      pointer-events: auto;
+    }
+
+    .admin-toast-success {
+      border-inline-start: 4px solid var(--admin-success);
+    }
+
+    .admin-toast-error {
+      border-inline-start: 4px solid var(--admin-danger);
+    }
+
+    .admin-toast-warning {
+      border-inline-start: 4px solid var(--admin-warning);
+    }
+
+    .admin-toast-info {
+      border-inline-start: 4px solid var(--admin-primary);
+    }
+
+    .admin-toast-title {
+      font-size: 13px;
+      font-weight: 800;
+      color: var(--admin-text);
+    }
+
+    .admin-toast-message {
+      margin: 0;
+      font-size: 13px;
+      color: var(--admin-text-soft);
+    }
+
+    .admin-confirm {
+      position: fixed;
+      inset: 0;
+      z-index: 230;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .admin-confirm-backdrop {
+      position: absolute;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.48);
+    }
+
+    .admin-confirm-dialog {
+      position: relative;
+      z-index: 1;
+      width: min(100%, 440px);
+      padding: 22px;
+      border-radius: 24px;
+      background: rgba(255, 255, 255, 0.99);
+      border: 1px solid var(--admin-border);
+      box-shadow: 0 20px 48px rgba(15, 23, 42, 0.16);
+    }
+
+    .admin-confirm-dialog h3 {
+      margin: 0 0 6px;
+      font-size: 22px;
+    }
+
+    .admin-confirm-dialog p {
+      margin: 0;
+      color: var(--admin-text-soft);
+      font-size: 14px;
+    }
+
+    .admin-confirm-actions {
+      display: flex;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .admin-confirm-actions .btn {
+      flex: 1 1 0;
+      min-height: 46px;
+    }
+
+    #btnConfirmAccept[data-tone="danger"] {
+      background: #c62828;
+      color: white;
+    }
+
+    #btnConfirmAccept[data-tone="default"] {
+      background: var(--admin-primary-gradient);
+      color: white;
+    }
+
+    body.admin-confirm-open {
+      overflow: hidden;
+    }

@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap');
+
+:root {
+  --ui-black: #0B0B0F;
+  --ui-border: #E5E7EB;
+  --ui-border-strong: #D1D5DB;
+  --border-color: var(--ui-border);
+
+  --space-6: 6px;
+  --space-10: 10px;
+  --space-16: 16px;
+  --space-24: 24px;
+  --space-32: 32px;
+
+  --layout-page-max: 1200px;
+  --layout-page-gutter: clamp(16px, 4vw, 24px);
+  --layout-section-gap: clamp(24px, 5vw, 48px);
+  --layout-viewport-height: 100dvh;
+  --layout-shell-block-padding: clamp(12px, 3dvh, 28px);
+  --layout-shell-inline-padding: var(--layout-page-gutter);
+  --layout-breakpoint-md: 1100px;
+  --layout-breakpoint-sm: 700px;
+  --layout-gutter: var(--space-32);
+  --layout-fixed-col: 420px;
+  --layout-tablet-fixed-col: 340px;
+  --layout-tablet-form-stack-max: 340px;
+  --layout-frame-max: var(--layout-page-max);
+  --layout-tablet-max: 720px;
+  --layout-mobile-max: 480px;
+  --layout-stack-max: 100%;
+  --layout-context-stack-max: 100%;
+
+  --auth-form-min: 0;
+  --auth-form-width: 420px;
+  --auth-layout-max: var(--layout-page-max);
+  --auth-mobile-max: 520px;
+  --auth-layout-mode: grid;
+  --auth-context-copy-max: 680px;
+  --auth-context-text-max: 520px;
+  --auth-points-max: 100%;
+  --auth-tablet-max: 720px;
+  --auth-card-padding: clamp(20px, 4vw, 24px);
+  --auth-card-gap: 18px;
+  --auth-content-gap: 12px;
+  --auth-form-gap: 14px;
+  --auth-field-gap: 8px;
+  --auth-mobile-side-padding: 0;
+  --auth-context-title-min: 2rem;
+  --auth-context-title-fluid: 4vw;
+  --auth-context-title-max: 3.6rem;
+
+  --icon-size-xs: 0.875rem;
+  --icon-size-sm: 1rem;
+  --icon-size-md: 1.125rem;
+  --icon-size-lg: 1.375rem;
+  --icon-size-xl: 1.75rem;
+  --icon-stroke-width: 1.8;
+
+  --text-primary: #0F172A;
+  --text-secondary: #64748B;
+  --text-light: #94A3B8;
+
+  --bg-main: #F8FAFC;
+  --bg-surface: #FFFFFF;
+  --bg-soft: var(--bg-surface);
+  --bg-dark: #0B0F19;
+
+  --primary: #2D6CFF;
+  --primary-gradient: linear-gradient(135deg, #2D6CFF, #1EC8FF);
+
+  --success: #22C55E;
+  --danger: #DC2626;
+  --warning: #FFC107;
+  --danger-soft: #FEE2E2;
+  --accent: var(--warning);
+  --accent-soft: #FFF4CC;
+
+  --brand-blue: var(--primary);
+  --brand-cyan: #1EC8FF;
+  --brand-green: var(--success);
+  --brand-lime: var(--primary);
+  --brand-purple: var(--primary);
+  --border-light: var(--ui-border);
+  --border-medium: var(--ui-border-strong);
+
+  --shadow-soft: 0 6px 18px rgba(0,0,0,0.06);
+  --shadow-medium: 0 10px 24px rgba(0,0,0,0.08);
+  --shadow-strong: 0 16px 36px rgba(0,0,0,0.12);
+
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 18px;
+}

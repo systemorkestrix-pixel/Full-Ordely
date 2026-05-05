@@ -1,0 +1,78 @@
+
+    #btnLogout:hover {
+      background: #b71c1c;
+    }
+
+    #btnCancelEdit,
+    #btnCancelCategoryEdit {
+      background: #f8fafc;
+      color: var(--admin-text-soft);
+      border: 1px solid var(--admin-border);
+    }
+
+    .admin-container .btn {
+      border: none;
+      background: var(--admin-primary-gradient);
+      color: white;
+      box-shadow: 0 10px 24px rgba(45, 108, 255, 0.25);
+    }
+
+    .admin-container .btn.product-editor-close,
+    .admin-container .btn.category-editor-close,
+    .admin-container .btn#btnCancelEdit,
+    .admin-container .btn#btnCancelCategoryEdit {
+      background: #f8fafc;
+      color: var(--admin-text-soft);
+      border: 1px solid var(--admin-border);
+      box-shadow: none;
+    }
+
+    .form-actions .btn,
+    .action-btns .btn {
+      min-height: 46px;
+      border-radius: 14px;
+    }
+
+    .action-btns .btn {
+      width: auto;
+      padding-inline: 12px;
+    }
+
+    .btn-availability-on {
+      background: rgba(34, 197, 94, 0.12);
+      color: var(--admin-success);
+      border: 1px solid var(--ui-border);
+    }
+
+    .btn-availability-off {
+      background: rgba(255, 193, 7, 0.16);
+      color: #a16207;
+      border: 1px solid var(--ui-border);
+    }
+
+    .admin-container .btn.btn-danger,
+    .admin-container .btn#btnLogout,
+    .admin-container .btn.btn-availability-on,
+    .admin-container .btn.btn-availability-off,
+    .admin-container .btn#btnConfirmAccept[data-tone="danger"] {
+      box-shadow: none;
+    }
+
+    .admin-container .btn.btn-danger,
+    .admin-container .btn#btnLogout,
+    .admin-container .btn#btnConfirmAccept[data-tone="danger"] {
+      background: var(--admin-danger);
+      color: white;
+    }
+
+    .admin-container .btn.btn-availability-on {
+      background: rgba(34, 197, 94, 0.12);
+      color: var(--admin-success);
+      border: 1px solid var(--ui-border);
+    }
+
+    .admin-container .btn.btn-availability-off {
+      background: rgba(255, 193, 7, 0.16);
+      color: #a16207;
+      border: 1px solid var(--ui-border);
+    }

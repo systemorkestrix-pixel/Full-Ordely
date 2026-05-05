@@ -1,0 +1,108 @@
+    @media (max-width: 420px) {
+      .admin-title-wrap h2 {
+        font-size: 20px;
+      }
+
+      .tab {
+        font-size: 10.5px;
+      }
+
+      .overview-grid {
+        gap: 6px;
+      }
+
+      .overview-card {
+        padding: 10px 8px;
+        border-radius: 14px;
+      }
+
+      .overview-card-label {
+        font-size: 10px;
+      }
+
+      .overview-card-value {
+        font-size: 20px;
+      }
+
+      .product-editor-header,
+      .category-editor-header {
+        gap: 12px;
+      }
+
+      .product-editor-close,
+      .category-editor-close {
+        width: 40px;
+        min-width: 40px;
+        padding: 0;
+      }
+
+      .product-editor-close .btn-content,
+      .category-editor-close .btn-content {
+        gap: 0;
+      }
+
+      .product-editor-close .btn-content span:last-child,
+      .category-editor-close .btn-content span:last-child {
+        display: none;
+      }
+
+      .field-label,
+      .admin-toggle-label {
+        gap: 7px;
+      }
+
+      .ui-icon {
+        width: 16px;
+        height: 16px;
+      }
+
+      .form-actions {
+        grid-template-columns: 1fr;
+      }
+
+      .form-actions .btn:only-child {
+        width: 100%;
+      }
+
+      .admin-table-row--product {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-areas:
+          "image image"
+          "name name"
+          "price category"
+          "clicks status"
+          "actions actions";
+        gap: 10px 12px;
+      }
+
+      .admin-table-row--order {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+          "product"
+          "customer"
+          "phone"
+          "quantity"
+          "date"
+          "status"
+          "actions";
+      }
+
+      .admin-table-row--product .admin-table-thumb,
+      .admin-table-row--product .admin-card-media,
+      .admin-table-row--product .admin-card-media--placeholder .admin-image-placeholder { width: 64px; min-width: 64px; height: 64px; min-height: 64px; }
+
+      .admin-table-responsive .admin-table-actions { grid-template-columns: 1fr; }
+
+      .admin-table-responsive .product-action-btns { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
+      .admin-table-row--order .admin-order-product-meta {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .category-card-meta,
+      .category-card-actions {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ===== LEGACY LAYOUT RESPONSIVE ===== */

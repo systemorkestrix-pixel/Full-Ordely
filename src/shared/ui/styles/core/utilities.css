@@ -1,0 +1,20 @@
+.hidden {
+  display: none !important;
+}
+
+.container {
+  width: min(1100px, 100% - 24px);
+  margin: 0 auto;
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}

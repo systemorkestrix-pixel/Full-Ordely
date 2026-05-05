@@ -1,0 +1,98 @@
+﻿    :root {
+      --ui-black: #0b0b0f;
+      --ui-action: var(--primary);
+      --ui-action-soft: rgba(45, 108, 255, 0.15);
+      --ui-border-light: #e5e7eb;
+    }
+
+    .admin-container {
+      --admin-surface: #ffffff;
+      --admin-bg: #f8fafc;
+      --admin-text: var(--ui-black);
+      --admin-text-soft: #6b7280;
+      --admin-border: var(--ui-border-light);
+      --admin-border-strong: var(--ui-border-light);
+      --admin-primary: var(--primary);
+      --admin-primary-gradient: var(--primary-gradient);
+      --admin-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+    }
+
+    .admin-header,
+    .auth-section,
+    .panel-card,
+    .settings-accordion-item,
+    .product-editor-surface,
+    .category-editor-surface,
+    .tabs,
+    .admin-table-responsive.panel-card,
+    .category-card,
+    .settings-block,
+    .admin-confirm-dialog,
+    .admin-toast,
+    .file-picker-row,
+    .form-toggle-row,
+    .header-icon-btn,
+    .auth-note {
+      border: 1px solid var(--ui-border-light);
+      border-radius: 18px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+      position: relative;
+      background: #ffffff;
+    }
+
+    .panel-card::before,
+    .settings-accordion-item::before,
+    .product-editor-surface::before,
+    .category-editor-surface::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      inset-inline: 0;
+      height: 2px;
+      background: var(--primary);
+    }
+
+    .panel-card,
+    .product-editor-surface,
+    .category-editor-surface,
+    .settings-accordion-item {
+      overflow: hidden;
+    }
+
+    .tabs {
+      border: 1px solid var(--ui-border-light);
+    }
+
+    .tab {
+      border: 1px solid var(--ui-border-light);
+      color: var(--ui-black);
+    }
+
+    .tab.active {
+      background: var(--primary-gradient);
+      color: white;
+      border: 1px solid var(--primary);
+      box-shadow: none;
+    }
+
+    .tab:not(.active):hover {
+      background: #ffffff;
+      border-color: var(--primary);
+    }
+
+    .settings-accordion-summary {
+      border-bottom: 1px solid var(--ui-border-light);
+    }
+
+    .settings-accordion-item[open] {
+      border-color: var(--primary);
+    }
+
+    .settings-accordion-item:not([open]) .settings-accordion-summary {
+      border-bottom: none;
+    }
+
+    .settings-block-header p {
+      display: none;
+    }
+

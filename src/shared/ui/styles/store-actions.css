@@ -1,0 +1,65 @@
+.store-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 10px;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  border-radius: 8px;
+  transition: transform 0.1s, opacity 0.2s;
+}
+
+.store-btn:active {
+  transform: scale(0.98);
+}
+
+.store-btn--map,
+.store-btn--phone {
+  color: var(--primary);
+  background: var(--bg-surface);
+  border: 1px solid var(--ui-border-strong);
+  box-shadow: var(--shadow-soft);
+}
+
+.store-btn--whatsapp {
+  color: white;
+  background: #1f9d55;
+}
+
+.store-btn--messenger {
+  color: white;
+  background: #0084ff;
+}
+
+.store-btn--telegram {
+  color: white;
+  background: #229ed9;
+}
+
+.store-actions {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(72px, 1fr));
+  width: 100%;
+  gap: 10px;
+  padding: 12px;
+  box-sizing: border-box;
+  background-color: var(--bg-surface);
+  border-top: 1px solid var(--ui-border-strong);
+  box-shadow: var(--shadow-soft);
+}
+
+.store-action-button {
+  min-height: 58px;
+  padding: 0;
+  border-radius: 18px;
+}
