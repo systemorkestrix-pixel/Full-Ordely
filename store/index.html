@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' https: data: blob:; connect-src 'self' https: wss:; object-src 'none'; base-uri 'self'; form-action 'self'">
+  <title>Ordely</title>
+  <link rel="stylesheet" href="/src/shared/ui/styles/base.css" />
+  <link rel="stylesheet" href="/src/shared/ui/styles/store.css" />
+</head>
+<body class="store-page store-shell">
+  <header class="store-hero" id="heroSection">
+    <img id="heroImage" class="store-hero-media" alt="" hidden />
+    <div class="store-hero-overlay"></div>
+    <div class="store-hero-content">
+      <div class="store-hero-shell"></div>
+    </div>
+  </header>
+
+  <section class="store-social" id="socialLinks" hidden data-copy-aria-label="socialLinksAria"></section>
+
+  <section class="store-service-area" id="serviceAreaBanner" hidden>
+    <div class="store-service-area-copy">
+      <strong data-copy="serviceAreaTitle"></strong>
+      <p id="serviceAreaText" data-copy="serviceAreaText"></p>
+    </div>
+  </section>
+
+  <div class="store-categories" hidden>
+    <nav class="store-category-list" id="categoryContainer" data-copy-aria-label="categoriesAria"></nav>
+  </div>
+
+  <main class="store-products" id="productsContainer">
+    <div class="store-loader" data-copy="loading"></div>
+  </main>
+
+  <div class="store-actions" id="stickyBottomBar" hidden></div>
+
+  <div class="store-toast-stack" id="siteToastStack" aria-live="polite" aria-atomic="true"></div>
+
+  <div class="store-modal hidden" id="orderModal" aria-hidden="true">
+    <div class="store-modal-backdrop" data-close-order-modal="true"></div>
+    <div class="store-modal-content" role="dialog" aria-modal="true" aria-labelledby="orderModalTitle">
+      <div class="store-modal-handle"></div>
+
+      <div class="store-order-steps" id="orderSteps">
+        <div class="store-order-step active" id="orderStep1">
+          <span class="store-order-step-num">1</span>
+          <span data-copy="orderStep1Label"></span>
+        </div>
+        <div class="store-order-step-connector"></div>
+        <div class="store-order-step" id="orderStep2">
+          <span class="store-order-step-num">2</span>
+          <span data-copy="orderStep2Label"></span>
+        </div>
+      </div>
+
+      <div class="store-modal-header">
+        <div>
+          <h2 id="orderModalTitle" data-copy="orderModalTitle"></h2>
+          <p data-copy="orderModalText"></p>
+        </div>
+        <button type="button" class="store-modal-close" id="btnCloseOrderModal" data-copy-aria-label="orderModalCloseAria">&times;</button>
+      </div>
+
+      <div class="store-modal-body">
+        <div class="store-order-summary">
+          <strong id="orderProductName"></strong>
+          <span id="orderProductMeta"></span>
+        </div>
+
+        <div class="store-order-message" id="orderMessagePreview" hidden>
+          <strong data-copy="orderMessageTitle"></strong>
+          <pre id="orderMessageText"></pre>
+        </div>
+
+        <form class="store-modal-form" id="orderForm">
+          <input type="hidden" id="orderProductId" />
+
+          <label class="store-modal-field">
+            <span data-copy="orderCustomerNameLabel"></span>
+            <input type="text" id="orderCustomerName" class="store-modal-input" required minlength="2" maxlength="120" data-copy-placeholder="orderCustomerNamePlaceholder" aria-describedby="orderCustomerNameError" />
+            <small id="orderCustomerNameError" class="store-field-error" hidden></small>
+          </label>
+
+          <label class="store-modal-field">
+            <span data-copy="orderCustomerPhoneLabel"></span>
+            <input type="tel" id="orderCustomerPhone" class="store-modal-input" required dir="ltr" maxlength="16" placeholder="+213550000000" aria-describedby="orderCustomerPhoneError" />
+            <small id="orderCustomerPhoneError" class="store-field-error" hidden></small>
+          </label>
+
+          <label class="store-modal-field">
+            <span data-copy="orderQuantityLabel"></span>
+            <input type="number" id="orderQuantity" class="store-modal-input" required min="1" max="99" step="1" value="1" aria-describedby="orderQuantityError" />
+            <small id="orderQuantityError" class="store-field-error" hidden></small>
+          </label>
+
+          <button type="submit" class="store-modal-submit" id="btnSubmitOrder" data-copy="orderSubmit"></button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="/src/apps/store/store.js"></script>
+</body>
+</html>

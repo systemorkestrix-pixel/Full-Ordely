@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ordely</title>
+
+  <link rel="stylesheet" href="/src/shared/ui/styles/base.css" />
+  <link rel="stylesheet" href="/src/shared/ui/styles/landing.css" />
+</head>
+
+<body class="landing-page">
+
+<main class="landing-shell">
+
+  <section class="landing-hero reveal">
+    <div class="landing-hero-scarf-slot"></div>
+
+    <div class="landing-brand-hero">
+      <img src="/src/shared/brand/assets/logo.png" alt="Ordely" class="landing-brand-logo">
+    </div>
+
+    <div class="landing-hero-grid">
+      <div class="landing-copy">
+        <h1 data-copy="heroHeadline"></h1>
+        <p data-copy="heroText"></p>
+
+        <div class="landing-actions">
+          <a href="/entry" class="landing-btn landing-btn-primary" data-copy="primaryAction"></a>
+          <a href="/s/demo" class="landing-btn landing-btn-secondary" data-copy="secondaryAction"></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="platform-strip-section">
+    <p class="platform-strip-text" data-copy="platformStripText"></p>
+    <div class="platform-strip"></div>
+  </section>
+
+  <section class="landing-section">
+    <div class="landing-demo-card">
+      <div class="landing-demo-copy">
+        <strong data-copy="demoTitle"></strong>
+        <p data-copy="demoText"></p>
+      </div>
+
+      <div class="landing-demo-actions">
+        <div class="landing-demo-route">
+          <div class="landing-demo-indicator"></div>
+          /s/demo
+        </div>
+        <a href="/s/demo" class="landing-btn landing-btn-primary" data-copy="demoOpenStore"></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="landing-section landing-problem reveal">
+    <div class="landing-problem-visual-slot"></div>
+
+    <div class="landing-section-head">
+      <h2 data-copy="problemTitle"></h2>
+      <p data-copy="problemText"></p>
+    </div>
+
+    <div class="landing-steps">
+      <article class="landing-step-card">
+        <strong data-copy="problemLostTitle"></strong>
+        <p data-copy="problemLostText"></p>
+      </article>
+
+      <article class="landing-step-card">
+        <strong data-copy="problemQuestionsTitle"></strong>
+        <p data-copy="problemQuestionsText"></p>
+      </article>
+
+      <article class="landing-step-card">
+        <strong data-copy="problemDelayTitle"></strong>
+        <p data-copy="problemDelayText"></p>
+      </article>
+    </div>
+  </section>
+
+  <section class="landing-section landing-flow reveal">
+    <div class="landing-section-head">
+      <h2 data-copy="solutionTitle"></h2>
+      <p data-copy="solutionText"></p>
+    </div>
+
+    <div class="solution-flow">
+      <div class="flow-card">
+        <span data-copy="solutionProducts"></span>
+      </div>
+
+      <div class="flow-arrow" aria-hidden="true">&larr;</div>
+
+      <div class="flow-card">
+        <span data-copy="solutionOrder"></span>
+      </div>
+    </div>
+  </section>
+
+  <section class="landing-section landing-how">
+    <div class="landing-section-head">
+      <h2 data-copy="howTitle"></h2>
+    </div>
+
+    <div class="landing-steps">
+      <article class="landing-step-card landing-how-card">
+        <div class="landing-how-card-head">
+          <span class="landing-step-number">1</span>
+          <div class="landing-how-visual-slot" data-how-visual="account"></div>
+        </div>
+        <strong data-copy="howStepOne"></strong>
+      </article>
+
+      <article class="landing-step-card landing-how-card">
+        <div class="landing-how-card-head">
+          <span class="landing-step-number">2</span>
+          <div class="landing-how-visual-slot" data-how-visual="products"></div>
+        </div>
+        <strong data-copy="howStepTwo"></strong>
+      </article>
+
+      <article class="landing-step-card landing-how-card">
+        <div class="landing-how-card-head">
+          <span class="landing-step-number">3</span>
+          <div class="landing-how-visual-slot" data-how-visual="orders"></div>
+        </div>
+        <strong data-copy="howStepThree"></strong>
+      </article>
+    </div>
+  </section>
+
+  <section class="landing-final-cta landing-cta reveal">
+    <div class="landing-final-cta-card">
+      <h2 data-copy="ctaTitle"></h2>
+      <p data-copy="ctaText"></p>
+
+      <div class="landing-actions">
+        <a href="/entry" class="landing-btn landing-btn-primary" data-copy="primaryAction"></a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<script type="module" src="/src/apps/landing/landing.js"></script>
+
+</body>
+</html>

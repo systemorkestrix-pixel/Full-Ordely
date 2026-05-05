@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' https: data: blob:; connect-src 'self' https: wss:; object-src 'none'; base-uri 'self'; form-action 'self'">
+  <title>Ordely</title>
+  <link rel="stylesheet" href="/src/shared/ui/styles/base.css" />
+  <link rel="stylesheet" href="/src/shared/ui/styles/auth.css" />
+</head>
+
+<body class="auth-page auth-is-resolving">
+  <main class="auth-shell layout-shell layout-full-height">
+    <div class="layout-anchor">
+      <div class="layout-anchor-stack">
+        <img class="layout-anchor-icon" src="/src/shared/brand/assets/icon.png" alt="" width="512" height="512">
+        <p class="layout-anchor-text" data-copy="sideEyebrow"></p>
+        <div class="layout-anchor-divider"></div>
+      </div>
+    </div>
+
+    <section class="auth-layout layout-2col" data-copy-aria-label="pageAria">
+      <div class="auth-context-side layout-context layout-center layout-hide-mobile">
+        <div class="layout-stack layout-stretch">
+          <div class="auth-context-copy">
+            <h1 data-copy="sideTitle"></h1>
+            <p data-copy="sideText"></p>
+          </div>
+          <div class="auth-points" id="onboardingPoints"></div>
+        </div>
+      </div>
+
+      <div class="auth-form-side layout-form layout-center">
+        <div class="layout-stack">
+          <div class="auth-card reveal">
+            <section class="auth-copy reveal">
+              <div class="auth-state-visual" id="onboardingIcon"></div>
+              <h2 data-copy="title"></h2>
+              <p data-copy="subtitle"></p>
+            </section>
+
+            <div id="onboardingFeedback" class="auth-feedback" role="alert" aria-live="polite"></div>
+
+            <section class="auth-flow">
+              <form class="auth-account-form" id="onboardingForm" novalidate>
+
+                <div class="auth-field">
+                  <label for="onboardingStoreSlug" data-copy="storeSlugLabel"></label>
+                  <input
+                    type="text"
+                    id="onboardingStoreSlug"
+                    class="auth-input"
+                    data-copy-placeholder="storeSlugPlaceholder"
+                    required
+                    dir="ltr"
+                    maxlength="60"
+                    autocomplete="off"
+                  />
+                  <p id="slugPreview" class="auth-onboarding-preview" hidden>
+                    <span class="auth-onboarding-preview-label" data-copy="slugPreviewLabel"></span>
+                    <span id="slugPreviewUrl" class="auth-onboarding-preview-url" dir="ltr"></span>
+                  </p>
+                </div>
+
+                <div class="auth-field">
+                  <label for="onboardingContact" data-copy="contactLabel"></label>
+                  <input
+                    type="tel"
+                    id="onboardingContact"
+                    class="auth-input"
+                    data-copy-placeholder="contactPlaceholder"
+                    required
+                    dir="ltr"
+                    maxlength="32"
+                    autocomplete="tel"
+                  />
+                  <p id="contactHint" class="auth-onboarding-contact-hint" hidden></p>
+                </div>
+
+                <button type="submit" id="onboardingSubmitBtn" class="auth-submit" data-copy="submit"></button>
+              </form>
+            </section>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script type="module" src="/src/apps/onboarding/onboarding.js"></script>
+</body>
+</html>

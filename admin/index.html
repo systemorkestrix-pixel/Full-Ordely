@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' https: data: blob:; connect-src 'self' https: wss:; object-src 'none'; base-uri 'self'; form-action 'self'">
+  <title>Ordely</title>
+  <link rel="stylesheet" href="/src/shared/ui/styles/base.css">
+  <link rel="stylesheet" href="/src/shared/ui/styles/admin.css">
+</head>
+<body>
+<div class="admin-container">
+      <div class="admin-header">
+        <div class="admin-title-wrap">
+          <h2 data-copy="headerTitle"></h2>
+        </div>
+        <div class="admin-header-actions">
+          <a href="/" target="_blank" rel="noopener" class="header-icon-btn" id="btnOpenSite" data-copy-aria-label="openStoreAria" data-copy-title="openStoreAria">
+            <span class="ui-icon" data-visual-icon="globe" aria-hidden="true"></span>
+          </a>
+          <button type="button" class="header-icon-btn hidden" id="btnOrdersInbox" data-copy-aria-label="newOrdersAria" data-copy-title="newOrdersAria">
+            <span class="ui-icon" data-visual-icon="bell" aria-hidden="true"></span>
+            <span class="header-badge hidden" id="newOrdersBadge">0</span>
+          </button>
+          <button id="btnLogout" class="btn btn-small hidden" data-copy-aria-label="logoutAria" data-copy-title="logoutAria">
+            <span class="btn-content">
+              <span class="ui-icon" data-visual-icon="logout" aria-hidden="true"></span>
+              <span data-copy="logout"></span>
+            </span>
+          </button>
+        </div>
+      </div>
+      <div id="authSection" class="auth-section">
+        <div class="auth-card">
+          <div class="section-title">
+            <h3 data-copy="authSectionTitle"></h3>
+          </div>
+          <div class="auth-note">
+            <span class="ui-icon" data-visual-icon="lock" aria-hidden="true"></span>
+            <span class="auth-note-text" data-copy="authSectionNote"></span>
+          </div>
+          <p id="authGateMessage" class="auth-gate-copy" data-copy="authGateMessage"></p>
+          <p id="authGateFeedback" class="auth-gate-feedback hidden" data-tone="info" role="alert" aria-live="polite"></p>
+          <div class="auth-gate-actions">
+            <a href="/auth" class="btn btn-primary hidden" id="btnGoToAuth">
+              <span class="btn-content">
+                <span class="ui-icon" data-visual-icon="login" aria-hidden="true"></span>
+                <span data-copy="goToLogin"></span>
+              </span>
+            </a>
+            <button type="button" class="btn hidden" id="btnRetryAdmin">
+              <span class="btn-content">
+                <span class="ui-icon" data-visual-icon="refresh" aria-hidden="true"></span>
+                <span data-copy="retry"></span>
+              </span>
+            </button>
+            <button type="button" class="btn hidden" id="btnAuthLogout">
+              <span class="btn-content">
+                <span class="ui-icon" data-visual-icon="logout" aria-hidden="true"></span>
+                <span data-copy="authLogout"></span>
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+    <div id="dashboardSection" class="dashboard-section hidden">
+      <div id="adminPreviewGate" class="admin-preview-gate hidden" role="status" aria-live="polite">
+        <span class="ui-icon" data-visual-icon="mail" aria-hidden="true"></span>
+        <div>
+          <strong id="adminPreviewGateTitle"></strong>
+          <p id="adminPreviewGateText"></p>
+        </div>
+      </div>
+      <div class="tabs">
+        <div class="tab" data-target="productsTab">
+          <span class="ui-icon" data-visual-icon="products" aria-hidden="true"></span>
+          <span data-copy="tabProducts"></span>
+        </div>
+        <div class="tab" data-target="categoriesTab">
+          <span class="ui-icon" data-visual-icon="categories" aria-hidden="true"></span>
+          <span data-copy="tabCategories"></span>
+        </div>
+        <div class="tab" data-target="ordersTab">
+          <span class="ui-icon" data-visual-icon="bell" aria-hidden="true"></span>
+          <span data-copy="tabOrders"></span>
+        </div>
+        <div class="tab active" data-target="settingsTab">
+          <span class="ui-icon" data-visual-icon="settings" aria-hidden="true"></span>
+          <span data-copy="tabSettings"></span>
+        </div>
+      </div>
+      <div id="productsTab" class="editor-block hidden">
+        <div class="products-toolbar panel-card">
+          <div class="products-toolbar-copy">
+            <h4 data-copy="productsToolbarTitle"></h4>
+            <p data-copy="productsToolbarText"></p>
+          </div>
+          <button type="button" class="btn btn-accent" id="btnOpenProductEditor">
+            <span class="btn-content">
+              <span class="ui-icon" data-visual-icon="plus" aria-hidden="true"></span>
+              <span data-copy="createProduct"></span>
+            </span>
+          </button>
+        </div>
+        <div class="admin-table-responsive panel-card">
+          <table class="admin-table admin-table--products">
+            <colgroup class="products-colgroup">
+              <col class="products-col-image">
+              <col class="products-col-name">
+              <col class="products-col-price">
+              <col class="products-col-category">
+              <col class="products-col-clicks">
+              <col class="products-col-status">
+              <col class="products-col-actions">
+            </colgroup>
+            <thead class="admin-table-head">
+              <tr class="admin-table-row">
+                <th class="admin-table-cell admin-table-cell--image" data-copy="tableImage"></th>
+                <th class="admin-table-cell admin-table-cell--name" data-copy="tableName"></th>
+                <th class="admin-table-cell admin-table-cell--price" data-copy="tablePrice"></th>
+                <th class="admin-table-cell admin-table-cell--category" data-copy="tableCategory"></th>
+                <th class="admin-table-cell admin-table-cell--clicks" data-copy="tableClicks"></th>
+                <th class="admin-table-cell admin-table-cell--status" data-copy="tableStatus"></th>
+                <th class="admin-table-cell admin-table-cell--actions" data-copy="tableActions"></th>
+              </tr>
+            </thead>
+            <tbody class="admin-table-body" id="productsTableBody"></tbody>
+          </table>
+        </div>
+      </div>
+      <div id="productEditorShell" class="product-editor-shell hidden" aria-hidden="true">
+        <div class="product-editor-backdrop" data-close-product-editor="true"></div>
+        <div class="product-editor-surface" role="dialog" aria-modal="true" aria-labelledby="productEditorTitle">
+          <div class="product-editor-header">
+            <div class="product-editor-heading">
+              <h3 id="productEditorTitle" data-copy="productEditorTitle"></h3>
+              <p id="productEditorSubtitle" data-copy="productEditorSubtitle"></p>
+            </div>
+            <button type="button" class="btn product-editor-close" id="btnCloseProductEditor">
+              <span class="btn-content">
+                <span class="ui-icon" data-visual-icon="close" aria-hidden="true"></span>
+                <span data-copy="close"></span>
+              </span>
+            </button>
+          </div>
+          <form id="productForm" class="editor-block panel-card product-editor-form">
+            <input type="hidden" id="prodId">
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="prodName" class="field-label">
+                  <span class="ui-icon" data-visual-icon="tag" aria-hidden="true"></span>
+                  <span data-copy="productNameLabel"></span>
+                </label>
+                <input type="text" id="prodName" class="form-control" required minlength="2" maxlength="120" data-copy-placeholder="productNamePlaceholder">
+              </div>
+              <div class="form-group">
+                <label for="prodPrice" class="field-label">
+                  <span class="ui-icon" data-visual-icon="price" aria-hidden="true"></span>
+                  <span data-copy="productPriceLabel"></span>
+                </label>
+                <input type="number" id="prodPrice" class="form-control" required min="0.01" step="0.01" placeholder="1200">
+              </div>
+              <div class="form-group full-width">
+                <label for="prodCategory" class="field-label">
+                  <span class="ui-icon" data-visual-icon="folder" aria-hidden="true"></span>
+                  <span data-copy="productCategoryLabel"></span>
+                </label>
+                <div class="form-select-wrap">
+                  <select id="prodCategory" class="form-control" required></select>
+                </div>
+                <small id="productCategoryHint" class="form-help" data-copy="productCategoryHint"></small>
+              </div>
+              <div class="form-group full-width">
+                <label for="prodImage" class="field-label">
+                  <span class="ui-icon" data-visual-icon="image" aria-hidden="true"></span>
+                  <span data-copy="productImageLabel"></span>
+                </label>
+                <div class="file-picker">
+                  <input type="file" id="prodImage" class="file-input" accept="image/*">
+                  <div class="file-picker-row">
+                    <label for="prodImage" class="file-picker-trigger">
+                      <span class="ui-icon" data-visual-icon="upload" aria-hidden="true"></span>
+                      <span data-copy="pickImage"></span>
+                    </label>
+                    <span class="file-picker-name" id="prodImageName" data-copy="fileNotSelected"></span>
+                  </div>
+                </div>
+                <small class="form-help"><span id="currentImgPrefix" data-copy="currentImagePrefix"></span><span id="currentImgUrl"></span></small>
+              </div>
+            </div>
+            <div class="form-actions">
+              <button type="submit" class="btn btn-accent" id="btnSaveProduct" data-copy="addProduct"></button>
+              <button type="button" class="btn btn-secondary hidden" id="btnCancelEdit" data-copy="cancel"></button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div id="categoriesTab" class="editor-block hidden">
+        <div class="categories-toolbar panel-card">
+          <div class="categories-toolbar-copy">
+            <h4 data-copy="categoriesToolbarTitle"></h4>
+            <p data-copy="categoriesToolbarText"></p>
+          </div>
+          <button type="button" class="btn btn-accent" id="btnOpenCategoryEditor">
+            <span class="btn-content">
+              <span class="ui-icon" data-visual-icon="plus" aria-hidden="true"></span>
+              <span data-copy="createCategory"></span>
+            </span>
+          </button>
+        </div>
+        <div class="panel-card">
+          <div class="categories-list" id="categoriesTableBody"></div>
+        </div>
+      </div>
+      <div id="categoryEditorShell" class="category-editor-shell hidden" aria-hidden="true">
+        <div class="category-editor-backdrop" data-close-category-editor="true"></div>
+        <div class="category-editor-surface" role="dialog" aria-modal="true" aria-labelledby="categoryEditorTitle">
+          <div class="category-editor-header">
+            <div class="category-editor-heading">
+              <h3 id="categoryEditorTitle" data-copy="categoryEditorTitle"></h3>
+              <p id="categoryEditorSubtitle" data-copy="categoryEditorSubtitle"></p>
+            </div>
+            <button type="button" class="btn category-editor-close" id="btnCloseCategoryEditor">
+              <span class="btn-content">
+                <span class="ui-icon" data-visual-icon="close" aria-hidden="true"></span>
+                <span data-copy="close"></span>
+              </span>
+            </button>
+          </div>
+          <form id="categoryForm" class="editor-block panel-card category-editor-form">
+            <input type="hidden" id="catId">
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="catName" class="field-label">
+                  <span class="ui-icon" data-visual-icon="folder" aria-hidden="true"></span>
+                  <span data-copy="categoryNameLabel"></span>
+                </label>
+                <input type="text" id="catName" class="form-control" required minlength="2" maxlength="80" data-copy-placeholder="categoryNamePlaceholder">
+              </div>
+              <div class="form-group">
+                <label for="catOrder" class="field-label">
+                  <span class="ui-icon" data-visual-icon="order" aria-hidden="true"></span>
+                  <span data-copy="categoryOrderLabel"></span>
+                </label>
+                <input type="number" id="catOrder" class="form-control" min="0" step="1" value="0" required placeholder="1">
+              </div>
+              <div class="form-group full-width">
+                <label for="catIcon" class="field-label">
+                  <span class="ui-icon" data-visual-icon="spark" aria-hidden="true"></span>
+                  <span data-copy="categoryIconLabel"></span>
+                </label>
+                <input type="text" id="catIcon" class="form-control" maxlength="16" placeholder="??" required>
+              </div>
+            </div>
+            <div class="form-actions">
+              <button type="submit" class="btn btn-accent" id="btnSaveCategory" data-copy="addCategory"></button>
+              <button type="button" class="btn btn-secondary hidden" id="btnCancelCategoryEdit" data-copy="cancel"></button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div id="ordersTab" class="editor-block hidden">
+        <div class="orders-toolbar products-toolbar panel-card">
+          <div class="products-toolbar-copy">
+            <h4 data-copy="ordersToolbarTitle"></h4>
+            <p data-copy="ordersToolbarText"></p>
+          </div>
+        </div>
+        <div class="overview-grid">
+          <div class="overview-card">
+            <span class="overview-card-label" data-copy="summaryNewOrders"></span>
+            <strong class="overview-card-value" id="summaryNewOrders">0</strong>
+          </div>
+          <div class="overview-card">
+            <span class="overview-card-label" data-copy="summaryTotalOrders"></span>
+            <strong class="overview-card-value" id="summaryTotalOrders">0</strong>
+          </div>
+          <div class="overview-card">
+            <span class="overview-card-label" data-copy="summarySiteVisits"></span>
+            <strong class="overview-card-value" id="summarySiteVisits">0</strong>
+          </div>
+        </div>
+        <div class="admin-table-responsive panel-card">
+          <table class="admin-table admin-table--orders">
+            <colgroup class="orders-colgroup">
+              <col class="orders-col-product">
+              <col class="orders-col-customer">
+              <col class="orders-col-phone">
+              <col class="orders-col-quantity">
+              <col class="orders-col-status">
+              <col class="orders-col-date">
+              <col class="orders-col-actions">
+            </colgroup>
+            <thead class="admin-table-head">
+              <tr class="admin-table-row">
+                <th class="admin-table-cell admin-table-cell--product" data-copy="orderTableProduct"></th>
+                <th class="admin-table-cell admin-table-cell--customer" data-copy="orderTableCustomer"></th>
+                <th class="admin-table-cell admin-table-cell--phone" data-copy="orderTablePhone"></th>
+                <th class="admin-table-cell admin-table-cell--quantity" data-copy="orderTableQuantity"></th>
+                <th class="admin-table-cell admin-table-cell--status" data-copy="orderTableStatus"></th>
+                <th class="admin-table-cell admin-table-cell--date" data-copy="orderTableDate"></th>
+                <th class="admin-table-cell admin-table-cell--actions" data-copy="orderTableActions"></th>
+              </tr>
+            </thead>
+            <tbody class="admin-table-body" id="ordersTableBody"></tbody>
+          </table>
+        </div>
+      </div>
+      <div id="settingsTab" class="editor-block">
+        <form id="settingsForm" class="editor-block panel-card">
+          <div class="settings-readiness" id="settingsReadiness">
+            <div class="settings-readiness-header">
+              <strong data-copy="readinessTitle"></strong>
+              <span class="settings-readiness-score" id="readinessScore"></span>
+            </div>
+            <div class="settings-readiness-bar" id="readinessBar">
+              <div class="settings-readiness-fill" id="readinessFill"></div>
+            </div>
+            <div class="settings-readiness-steps" id="readinessSteps"></div>
+          </div>
+          <div class="settings-grid settings-accordion">
+            <details class="settings-accordion-item" open>
+              <summary class="settings-accordion-summary">
+                <span class="settings-accordion-meta">
+                  <span class="settings-accordion-title">
+                    <span class="ui-icon" data-visual-icon="globe" aria-hidden="true"></span>
+                    <span data-copy="sectionStoreIdentity"></span>
+                  </span>
+                  <span class="settings-accordion-label" data-copy="sectionStoreIdentityLabel"></span>
+                </span>
+                <span class="settings-accordion-caret" aria-hidden="true"></span>
+              </summary>
+              <div class="settings-accordion-body">
+                <div class="settings-accordion-body-inner settings-section">
+                  <div class="settings-block">
+                    <div class="settings-block-header">
+                      <h4 data-copy="storeLinkTitle"></h4>
+                    </div>
+                    <div class="admin-link-list">
+                      <div class="form-group">
+                        <label for="storeSlug" class="field-label">
+                          <span data-copy="storeSlugLabel"></span>
+                        </label>
+                        <input type="text" id="storeSlug" class="form-control" dir="ltr" minlength="3" maxlength="40" pattern="^[a-z0-9]+(?:-[a-z0-9]+)*$" autocapitalize="off" spellcheck="false" placeholder="my-store">
+                        <small class="form-help"><span id="storeSlugPreviewPrefix" data-copy="storePreviewPrefix"></span><span id="storeSlugPreview">/s/my-store</span></small>
+                      </div>
+                      <div class="admin-store-share-panel" aria-live="polite">
+                        <div class="admin-store-share-preview">
+                          <strong id="storeUrlDisplay" dir="ltr">/s/my-store</strong>
+                          <div class="admin-store-share-actions">
+                            <button type="button" class="btn" id="btnCopyStoreLink">
+                              <span class="btn-content">
+                                <span class="ui-icon" data-visual-icon="link" aria-hidden="true"></span>
+                                <span data-copy="copyLink"></span>
+                              </span>
+                            </button>
+                            <button type="button" class="btn btn-accent" id="btnDownloadStoreQr">
+                              <span class="btn-content">
+                                <span class="ui-icon" data-visual-icon="upload" aria-hidden="true"></span>
+                                <span data-copy="downloadQr"></span>
+                              </span>
+                            </button>
+                          </div>
+                        </div>
+                        <p class="admin-store-share-warning hidden" id="storeQrWarning" data-copy="storeQrWarning"></p>
+                        <div class="admin-store-qr-card hidden" id="storeQrPanel">
+                          <div class="admin-store-qr-frame">
+                            <img id="storeQrImage" class="admin-store-qr-image" data-copy-alt="storeQrAlt" hidden>
+                          </div>
+                          <span class="admin-store-qr-label" id="storeQrLabel" data-copy="storeQrLabel"></span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="settings-block">
+                    <div class="settings-block-header">
+                      <h4 data-copy="heroTitle"></h4>
+                    </div>
+                    <div class="admin-hero-preview">
+                      <img id="heroPreviewImage" class="admin-hero-preview-image" data-copy-alt="heroImageAlt" hidden>
+                    </div>
+                    <div class="admin-link-list">
+                      <div class="form-group">
+                        <label for="heroImageUrl" class="field-label">
+                          <span data-copy="heroUrlLabel"></span>
+                        </label>
+                        <input type="url" id="heroImageUrl" class="form-control" dir="ltr" maxlength="500" placeholder="https://ordely.app/hero.jpg">
+                        <small class="form-help" id="heroImageHint" data-copy="heroHint"></small>
+                      </div>
+                      <div class="form-group">
+                        <label for="heroImageFile" class="field-label">
+                          <span data-copy="heroUploadLabel"></span>
+                        </label>
+                        <div class="file-picker">
+                          <input type="file" id="heroImageFile" class="file-input" accept="image/*">
+                          <div class="file-picker-row">
+                            <label for="heroImageFile" class="file-picker-trigger">
+                              <span class="ui-icon" data-visual-icon="upload" aria-hidden="true"></span>
+                              <span data-copy="pickImage"></span>
+                            </label>
+                            <span class="file-picker-name" id="heroImageFileName" data-copy="fileNotSelected"></span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </details>
+            <details class="settings-accordion-item">
+              <summary class="settings-accordion-summary">
+                <span class="settings-accordion-meta">
+                  <span class="settings-accordion-title">
+                    <span class="ui-icon" data-visual-icon="bell" aria-hidden="true"></span>
+                    <span data-copy="ordersOpsTitle"></span>
+                  </span>
+                  <span class="settings-accordion-label" data-copy="ordersOpsLabel"></span>
+                </span>
+                <span class="settings-accordion-caret" aria-hidden="true"></span>
+              </summary>
+              <div class="settings-accordion-body">
+                <div class="settings-accordion-body-inner settings-section">
+                  <div class="settings-block">
+                    <div class="settings-block-header">
+                      <h4 data-copy="ordersEnabledTitle"></h4>
+                    </div>
+                    <div class="admin-link-list">
+                      <div class="form-toggle-row">
+                        <label for="ordersEnabled" class="admin-toggle-label">
+                          <span data-copy="ordersEnabledLabel"></span>
+                        </label>
+                        <input type="checkbox" id="ordersEnabled" class="admin-toggle-switch">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="settings-block">
+                    <div class="settings-block-header">
+                      <h4 data-copy="serviceAreaTitle"></h4>
+                    </div>
+                    <div class="admin-link-list">
+                      <div class="form-group">
+                        <label for="serviceCountry" class="field-label">
+                          <span data-copy="serviceCountryLabel"></span>
+                        </label>
+                        <input type="text" id="serviceCountry" class="form-control" maxlength="80" data-copy-placeholder="serviceCountryPlaceholder">
+                      </div>
+                      <div class="form-group">
+                        <label for="serviceRegion" class="field-label">
+                          <span data-copy="serviceRegionLabel"></span>
+                        </label>
+                        <input type="text" id="serviceRegion" class="form-control" maxlength="120" data-copy-placeholder="serviceRegionPlaceholder">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </details>
+            <details class="settings-accordion-item">
+              <summary class="settings-accordion-summary">
+                <span class="settings-accordion-meta">
+                  <span class="settings-accordion-title">
+                    <span class="ui-icon" data-visual-icon="phone" aria-hidden="true"></span>
+                    <span data-copy="channelsTitle"></span>
+                  </span>
+                  <span class="settings-accordion-label" data-copy="channelsLabel"></span>
+                </span>
+                <span class="settings-accordion-caret" aria-hidden="true"></span>
+              </summary>
+              <div class="settings-accordion-body">
+                <div class="settings-accordion-body-inner settings-section">
+                  <div class="settings-block">
+                    <div class="settings-block-header">
+                      <h4 data-copy="contactButtonsTitle"></h4>
+                    </div>
+                    <div class="admin-link-list">
+                      <div class="form-group">
+                        <label for="sitePhoneNumber" class="field-label">
+                          <span data-copy="sitePhoneLabel"></span>
+                        </label>
+                        <input type="text" id="sitePhoneNumber" class="form-control" dir="ltr" maxlength="16" placeholder="+213550000000">
+                      </div>
+                      <div class="form-group">
+                        <label for="whatsappUrl" class="field-label">
+                          <span data-copy="whatsappLabel"></span>
+                        </label>
+                        <input type="text" id="whatsappUrl" class="form-control" dir="ltr" maxlength="16" placeholder="+213660000000">
+                      </div>
+                      <div class="form-group">
+                        <label for="messengerUrl" class="field-label">
+                          <span data-copy="messengerLabel"></span>
+                        </label>
+                        <input type="text" id="messengerUrl" class="form-control" dir="ltr" maxlength="80" placeholder="ordelyapp">
+                      </div>
+                      <div class="form-group">
+                        <label for="telegramUrl" class="field-label">
+                          <span data-copy="telegramLabel"></span>
+                        </label>
+                        <input type="text" id="telegramUrl" class="form-control" dir="ltr" maxlength="33" placeholder="@ordely_app">
+                      </div>
+                      <div class="form-group">
+                        <label for="googleMapsUrl" class="field-label">
+                          <span data-copy="googleMapsLabel"></span>
+                        </label>
+                        <input type="url" id="googleMapsUrl" class="form-control" dir="ltr" maxlength="500" placeholder="https://maps.app.goo.gl/ordely123">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </details>
+            <details class="settings-accordion-item">
+              <summary class="settings-accordion-summary">
+                <span class="settings-accordion-meta">
+                  <span class="settings-accordion-title">
+                    <span class="ui-icon" data-visual-icon="link" aria-hidden="true"></span>
+                    <span data-copy="socialTitle"></span>
+                  </span>
+                  <span class="settings-accordion-label" data-copy="socialLabel"></span>
+                </span>
+                <span class="settings-accordion-caret" aria-hidden="true"></span>
+              </summary>
+              <div class="settings-accordion-body">
+                <div class="settings-accordion-body-inner settings-section">
+                  <div class="settings-block">
+                    <div class="settings-block-header">
+                      <h4 data-copy="accountsTitle"></h4>
+                    </div>
+                    <div class="admin-link-list">
+                      <div class="form-group">
+                        <label for="facebookUrl" class="field-label">
+                          <span data-copy="facebookLabel"></span>
+                        </label>
+                        <input type="url" id="facebookUrl" class="form-control" dir="ltr" maxlength="500" placeholder="https://facebook.com/ordely.app">
+                      </div>
+                      <div class="form-group">
+                        <label for="instagramUrl" class="field-label">
+                          <span data-copy="instagramLabel"></span>
+                        </label>
+                        <input type="url" id="instagramUrl" class="form-control" dir="ltr" maxlength="500" placeholder="https://instagram.com/ordely.app">
+                      </div>
+                      <div class="form-group">
+                        <label for="tiktokUrl" class="field-label">
+                          <span data-copy="tiktokLabel"></span>
+                        </label>
+                        <input type="url" id="tiktokUrl" class="form-control" dir="ltr" maxlength="500" placeholder="https://tiktok.com/@ordely.app">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </details>
+          </div>
+          <div class="form-actions">
+            <button type="submit" class="btn btn-accent" id="btnSaveSettings" disabled data-copy="saveSettings"></button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div id="adminToastStack" class="admin-toast-stack" aria-live="polite" aria-atomic="true"></div>
+  <div id="adminConfirmModal" class="admin-confirm hidden" aria-hidden="true">
+    <div class="admin-confirm-backdrop" data-confirm-close="true"></div>
+    <div class="admin-confirm-dialog" role="dialog" aria-modal="true" aria-labelledby="adminConfirmTitle">
+      <h3 id="adminConfirmTitle" data-copy="confirmTitle"></h3>
+      <p id="adminConfirmMessage" data-copy="confirmMessage"></p>
+      <div class="admin-confirm-actions">
+        <button type="button" class="btn" id="btnConfirmCancel" data-copy="confirmCancel"></button>
+        <button type="button" class="btn" id="btnConfirmAccept" data-tone="danger" data-copy="confirmAccept"></button>
+      </div>
+    </div>
+  </div>
+  <script type="module" src="/src/apps/admin/admin.js"></script>
+</body>
+</html>

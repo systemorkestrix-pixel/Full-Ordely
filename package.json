@@ -1,0 +1,41 @@
+{
+  "name": "ordely",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "setup:db": "node ./scripts/setup-supabase.mjs",
+    "check:html": "node ./scripts/check-html-structure.mjs",
+    "check:css": "node ./scripts/check-css-ownership.mjs",
+    "check:css-size": "node ./scripts/check-css-size.mjs",
+    "check:layout": "node ./scripts/check-layout-integrity.mjs",
+    "check:js": "node ./scripts/check-js-boundaries.mjs",
+    "check:admin": "node ./scripts/check-admin-structure.mjs",
+    "check:size": "node ./scripts/check-file-size.mjs",
+    "check:visual": "node ./scripts/check-visual-system.mjs",
+    "check:state": "node ./scripts/check-state-integrity.mjs",
+    "check:flow": "node ./scripts/check-architecture-flow.mjs",
+    "check:backend": "node ./scripts/check-backend-boundaries.mjs",
+    "check:data": "node ./scripts/check-data-layer.mjs",
+    "prebuild": "npm run lint && node ./scripts/ensure-supabase-ready.mjs",
+    "migrate:site-settings": "node ./scripts/run-migration.mjs ./migrations/20260425_site_settings",
+    "dev": "vite --port=3000 --host=0.0.0.0",
+    "dev:full": "npm run setup:db && npm run dev",
+    "build": "vite build",
+    "preview": "vite preview --host=0.0.0.0 --port=4173",
+    "clean": "node -e \"require('fs').rmSync('dist',{recursive:true,force:true})\"",
+    "lint": "node --check src/apps/admin/admin.js && node --check src/apps/admin/admin.dependencies.js && node --check src/apps/admin/admin.routes.js && node --check src/apps/admin/admin.runtime.js && node --check src/apps/admin/admin.state.js && node --check src/apps/admin/admin.validation.js && node --check src/apps/admin/admin.render.js && node --check src/apps/admin/admin.actions.js && node --check src/apps/admin/admin.form-actions.js && node --check src/apps/admin/admin.events.js && node --check src/apps/auth/auth.js && node --check src/apps/auth/auth.state.js && node --check src/apps/entry/entry.js && node --check src/apps/entry/entry.state.js && node --check src/apps/onboarding/onboarding.js && node --check src/apps/onboarding/onboarding.state.js && node --check src/apps/demo/demo-store.js && node --check src/apps/store/store.js && node --check src/apps/store/store.state.js && node --check src/core/api.js && node --check src/core/api/client.js && node --check src/core/api/query-builder.js && node --check src/core/api/mutation-builder.js && node --check src/core/governor/error-guard.js && node --check src/core/governor/tenant-guard.js && node --check src/core/governor/validation-guard.js && node --check src/core/governor/query-guard.js && node --check src/core/runtime/runtime-guard.js && node --check src/core/runtime/trace.js && node --check src/core/channel-engine.js && node --check src/core/guards.js && node --check src/core/runtime-guard.js && node --check src/core/site-settings.js && node --check src/core/tenant-context.js && node --check src/features/admin/admin.service.js && node --check src/features/admin/admin.validation.js && node --check src/features/admin/admin.mapper.js && node --check src/features/auth/auth.service.js && node --check src/features/auth/auth.validation.js && node --check src/features/auth/auth.mapper.js && node --check src/features/onboarding/onboarding.service.js && node --check src/features/onboarding/onboarding.validation.js && node --check src/features/onboarding/onboarding.mapper.js && node --check src/features/storefront/storefront.service.js && node --check src/features/storefront/storefront.validation.js && node --check src/features/storefront/storefront.mapper.js && node --check src/features/product/product.service.js && node --check src/features/product/product.validation.js && node --check src/features/product/product.mapper.js && node --check src/features/products/product.service.js && node --check src/features/products/product.ui.js && node --check src/features/categories/category.service.js && node --check src/features/categories/category.validation.js && node --check src/features/categories/category.mapper.js && node --check src/features/order/order.service.js && node --check src/features/order/order.validation.js && node --check src/features/order/order.mapper.js && node --check src/features/orders/order.service.js && node --check src/features/settings/settings.service.js && node --check src/features/settings/settings.validation.js && node --check src/features/settings/settings.mapper.js && node --check src/features/tenant/tenant.service.js && node --check src/features/tenant/tenant.validation.js && node --check src/features/tenant/tenant.mapper.js && node --check src/shared/state/create-state-store.js && node --check src/shared/ui/visual/icons.js && node --check src/shared/ui/visual/svg-hero-scarf.js && node --check src/shared/ui/visual/svg-how-steps.js && node --check src/shared/ui/visual/svg-problem-context.js && node --check src/shared/ui/visual/svg-store-flow.js && node --check system/governor.config.js && node --check scripts/setup-supabase.mjs && node --check scripts/run-migration.mjs && node --check scripts/ensure-supabase-ready.mjs && node --check scripts/check-html-structure.mjs && node --check scripts/check-css-ownership.mjs && node --check scripts/check-css-size.mjs && node --check scripts/check-layout-integrity.mjs && node --check scripts/check-js-boundaries.mjs && node --check scripts/check-admin-structure.mjs && node --check scripts/check-file-size.mjs && node --check scripts/check-visual-system.mjs && node --check scripts/check-state-integrity.mjs && node --check scripts/check-architecture-flow.mjs && node --check scripts/check-backend-boundaries.mjs && node --check scripts/check-data-layer.mjs && npm run check:html && npm run check:css && npm run check:css-size && npm run check:layout && npm run check:js && npm run check:admin && npm run check:size && npm run check:visual && npm run check:state && npm run check:flow && npm run check:backend && npm run check:data"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.104.1",
+    "qrcode": "^1.5.4"
+  },
+  "devDependencies": {
+    "dotenv": "^17.2.3",
+    "pg": "^8.16.3",
+    "vite": "^6.2.0"
+  }
+}
